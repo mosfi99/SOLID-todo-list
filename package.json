@@ -14,6 +14,7 @@
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.1.11",
 		"css-loader": "^7.1.2",
+		"daisyui": "^5.0.50",
 		"html-loader": "^5.1.0",
 		"html-webpack-plugin": "^5.6.3",
 		"postcss": "^8.5.6",
