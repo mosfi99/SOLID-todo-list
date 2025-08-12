@@ -9,13 +9,12 @@ export class Todo {
 
 	constructor(title, description, dueDate, priority) {
 		this.#id = crypto.randomUUID();
-		this.#title = title;
-		this.#description = description;
-		this.#dueDate = dueDate;
-		this.#priority = priority;
+		this.title = title;
+		this.description = description;
+		this.dueDate = dueDate;
+		this.priority = priority;
 	}
 
-	// getters
 	get id() {
 		return this.#id;
 	}
@@ -35,12 +34,11 @@ export class Todo {
 	get priority() {
 		return this.#priority;
 	}
-	// setters
+
 	set title(newTitle) {
 		if (!newTitle) {
 			throw new Error('Must set a title');
 		}
-
 		this.#title = newTitle.trim();
 	}
 
