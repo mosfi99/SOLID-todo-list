@@ -1,14 +1,14 @@
-// a Space holds multiple Todos
+// a Space holds multiple Tasks
 // a User can have multiple Spaces
 export class Space {
 	#id;
 	#title;
-	#todos; // array of Todo objects
+	#tasks; // array of Task objects
 
 	constructor(title) {
 		this.#id = crypto.randomUUID();
 		this.title = title;
-		this.#todos = []; // empty on creation
+		this.#tasks = []; // empty on creation
 	}
 
 	get id() {
@@ -19,8 +19,8 @@ export class Space {
 		return this.#title;
 	}
 
-	get todos() {
-		return [...this.#todos]; // return a copy to prevent external mutation
+	get tasks() {
+		return [...this.#tasks]; // return a copy to prevent external mutation
 	}
 
 	set title(newTitle) {
@@ -30,12 +30,12 @@ export class Space {
 		this.#title = newTitle.trim();
 	}
 
-	addTodo(todoToAdd) {
-		this.#todos.push(todoToAdd);
+	addTask(taskToAdd) {
+		this.#tasks.push(taskToAdd);
 	}
 
-	removeTodo(todoToRemove) {
-		// keep only the todos (t) that are not equal to the one we want to remove.
-		this.#todos = this.#todos.filter((t) => t !== todoToRemove);
+	removeTask(taskToRemove) {
+		// keep only the tasks (t) that are not equal to the one we want to remove.
+		this.#tasks = this.#tasks.filter((t) => t !== taskToRemove);
 	}
 }

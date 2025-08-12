@@ -1,5 +1,5 @@
-// a Todo belongs to only one Space
-export class Todo {
+// a Task belongs to only one Space
+export class Task {
 	#id;
 	#title;
 	#description;
@@ -54,8 +54,8 @@ export class Todo {
 	}
 
 	set priority(newPriority) {
-		if (!Todo.PRIORITIES.includes(newPriority)) {
-			throw new Error(`Priority must be one of: ${Todo.PRIORITIES.join(', ')}`);
+		if (!Task.PRIORITIES.includes(newPriority)) {
+			throw new Error(`Priority must be one of: ${Task.PRIORITIES.join(', ')}`);
 		}
 		this.#priority = newPriority;
 	}

@@ -1,14 +1,14 @@
-import { Todo } from './todo.js';
+import { Task } from './task.js';
 import { Space } from './space.js';
 
-export class TodoManager {
+export class TaskManager {
 	#spaces;
-	#todos;
+	#tasks;
 	#defaultSpace;
 
 	constructor() {
 		this.#spaces = new Map(); // key: id, value: Space instance
-		this.#todos = new Map(); // key: id, value: Todo instance
+		this.#tasks = new Map(); // key: id, value: Task instance
 
 		this.#defaultSpace = new Space('default');
 		this.#spaces.set(this.#defaultSpace.name, this.#defaultSpace);
@@ -26,18 +26,18 @@ export class TodoManager {
 		return space;
 	}
 
-	createTodo(title, description, dueDate, priority, spaceToBeAdded) {
+	createTask(title, description, dueDate, priority, spaceToBeAdded) {
 		// create new todo
-		const todo = new Todo(title, description, dueDate, priority);
-		// add it to todos collection (Map)
-		this.#todos.set(todo.id, todo);
+		const todo = new Task(title, description, dueDate, priority);
+		// add it to tasks collection (Map)
+		this.#tasks.set(todo.id, todo);
 
 		// add the todo to a space (default or specific)
 		// if user does not specify a name, add to default
 		let space;
 		if (spaceToBeAdded === undefined) {
 			space = this.#defaultSpace;
-			space.addTodo(todo);
+			space.addTask(todo);
 		}
 		// is user enters a name for a space, but is not yet created
 		space = this.#spaces.get(spaceToBeAdded);
@@ -45,7 +45,7 @@ export class TodoManager {
 			// create space
 			space = this.createSpace(spaceToBeAdded);
 			// add todo to new space
-			space.addTodo(todo);
+			space.addTask(todo);
 		}
 		return todo;
 	}
@@ -54,7 +54,7 @@ export class TodoManager {
 		return Array.from(this.#spaces.values());
 	}
 
-	get todos() {
-		return Array.from(this.#todos.values());
+	get tasks() {
+		return Array.from(this.#tasks.values());
 	}
 }
