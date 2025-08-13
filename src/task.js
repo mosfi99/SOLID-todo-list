@@ -5,7 +5,7 @@ export class Task {
 	#description;
 	#dueDate;
 	#priority;
-	static PRIORITIES = ['low', 'medium', 'high'];
+	static PRIORITIES = ['Low', 'Medium', 'High'];
 
 	constructor(title, description, dueDate, priority) {
 		this.#id = crypto.randomUUID();
