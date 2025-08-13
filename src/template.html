@@ -3,7 +3,125 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SOLID-TODO</title>
+		<title>TaskIt</title>
 	</head>
-	<body></body>
+	<body class="h-full flex flex-col">
+		<header class="border-b border-secondary bg-base-300">
+			<div class="lg:container mx-auto navbar shadow-sm">
+				<div class="navbar-start">
+					<div class="dropdown">
+						<div
+							tabindex="0"
+							role="button"
+							class="btn btn-ghost lg:hidden pl-1">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-5 w-5"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 6h16M4 12h8m-8 6h16" />
+							</svg>
+						</div>
+						<ul
+							tabindex="0"
+							class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-base-300">
+							<li>
+								<details>
+									<summary>Spaces</summary>
+									<ul class="spaces__list p-2 bg-base-300">
+										<!-- new li will be populated by JS -->
+										<li><a>Others</a></li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+					</div>
+					<h1 class="text-xl font-bold">TaskIt</h1>
+				</div>
+				<div class="navbar-center hidden lg:flex">
+					<ul class="menu menu-horizontal px-1">
+						<li>
+							<details>
+								<summary>Spaces</summary>
+								<ul class="spaces__list p-2 bg-base-300">
+									<!-- new li will be populated by JS -->
+									<li><a>Others</a></li>
+								</ul>
+							</details>
+						</li>
+					</ul>
+				</div>
+				<div class="navbar-end">
+					<button class="btn" onclick="my_modal_5.showModal()">Add Task</button>
+					<!-- MODAL TO ADD TASK -->
+					<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+						<div class="modal-box sm:w-2xs">
+							<form method="dialog">
+								<button
+									class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+									✕
+								</button>
+							</form>
+							<form id="task__form">
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Title</legend>
+									<input
+										id="task__title"
+										type="text"
+										class="input"
+										placeholder="Type here"
+										required />
+								</fieldset>
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Description</legend>
+									<input
+										id="task__description"
+										type="text"
+										class="input"
+										placeholder="Type here" />
+									<p class="label">Optional</p>
+								</fieldset>
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Due Date</legend>
+									<input id="task__dueDate" type="date" class="input" />
+								</fieldset>
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Priority</legend>
+									<select id="task__priority" class="select">
+										<option>Low</option>
+										<option>Medium</option>
+										<option>High</option>
+									</select>
+								</fieldset>
+
+								<fieldset class="fieldset">
+									<legend class="fieldset-legend">Space</legend>
+									<input
+										id="task__space"
+										type="text"
+										class="input"
+										placeholder="Type here"
+										list="spaces__list" />
+									<datalist id="spaces__list" class="spaces__list">
+										<!-- new options will be populated by JS -->
+									</datalist>
+								</fieldset>
+								<div class="modal-action">
+									<button id="add__task" class="btn">Add</button>
+								</div>
+							</form>
+						</div>
+					</dialog>
+				</div>
+			</div>
+		</header>
+		<!-- CREATE SPACES -->
+		<!-- SPACES -->
+		<!-- TODOS INSIDE SPACES -->
+	</body>
 </html>
