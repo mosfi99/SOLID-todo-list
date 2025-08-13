@@ -2,12 +2,12 @@
 // a User can have multiple Spaces
 export class Space {
 	#id;
-	#title;
+	#name;
 	#tasks; // array of Task objects
 
-	constructor(title) {
+	constructor(name) {
 		this.#id = crypto.randomUUID();
-		this.title = title;
+		this.name = name;
 		this.#tasks = []; // empty on creation
 	}
 
@@ -15,19 +15,19 @@ export class Space {
 		return this.#id;
 	}
 
-	get title() {
-		return this.#title;
+	get name() {
+		return this.#name;
 	}
 
 	get tasks() {
 		return [...this.#tasks]; // return a copy to prevent external mutation
 	}
 
-	set title(newTitle) {
-		if (!newTitle) {
-			throw new Error('Must set a Space title');
+	set name(newName) {
+		if (!newName) {
+			throw new Error('Must set a Space name');
 		}
-		this.#title = newTitle.trim();
+		this.#name = newName.trim();
 	}
 
 	addTask(taskToAdd) {
