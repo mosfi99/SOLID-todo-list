@@ -7,10 +7,10 @@ export class TaskManager {
 	#defaultSpace;
 
 	constructor() {
-		this.#spaces = new Map(); // key: id, value: Space instance
+		this.#spaces = new Map(); // key: name, value: Space instance
 		this.#tasks = new Map(); // key: id, value: Task instance
 
-		this.#defaultSpace = new Space('default');
+		this.#defaultSpace = new Space('Others');
 		this.#spaces.set(this.#defaultSpace.name, this.#defaultSpace);
 	}
 
@@ -22,32 +22,34 @@ export class TaskManager {
 		// if available, create a new space
 		const space = new Space(name);
 		// add the new space to the spaces collection (Map)
-		this.#spaces.set(space.id, space);
+		this.#spaces.set(space.name, space);
 		return space;
 	}
 
 	createTask(title, description, dueDate, priority, spaceToBeAdded) {
-		// create new todo
-		const todo = new Task(title, description, dueDate, priority);
+		// create new task
+		const task = new Task(title, description, dueDate, priority);
 		// add it to tasks collection (Map)
-		this.#tasks.set(todo.id, todo);
+		this.#tasks.set(task.id, task);
 
-		// add the todo to a space (default or specific)
+		// add the task to a space (default or specific)
 		// if user does not specify a name, add to default
 		let space;
 		if (spaceToBeAdded === undefined) {
 			space = this.#defaultSpace;
-			space.addTask(todo);
+		} else {
+			spaceToBeAdded = capitalize(spaceToBeAdded);
+			// if space exist, add to existing space, otherwise create new space
+			space =
+				this.#spaces.get(spaceToBeAdded) || this.createSpace(spaceToBeAdded);
 		}
-		// is user enters a name for a space, but is not yet created
-		space = this.#spaces.get(spaceToBeAdded);
-		if (!space) {
-			// create space
-			space = this.createSpace(spaceToBeAdded);
-			// add todo to new space
-			space.addTask(todo);
+
+		function capitalize(str) {
+			return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 		}
-		return todo;
+
+		space.addTask(task);
+		return task;
 	}
 
 	get spaces() {
