@@ -1,9 +1,9 @@
-# TaskIt
+# TaskIt ✅
 
-([Click here to see it!](https://mosfi99.github.io/TaskIt/))
-
-TaskIt is a Todo Web App built as part of ([The Odin Project curriculum](https://www.theodinproject.com/lessons/node-path-javascript-todo-list#project-solution)).
+TaskIt is a responsive Todo Web App built as part of [The Odin Project curriculum](https://www.theodinproject.com/lessons/node-path-javascript-todo-list#project-solution).
 The project’s main goal was to practice JavaScript ES6+ classes, modules, and apply SOLID principles.
+
+💻 [**Click here to see the live demo**](https://mosfi99.github.io/TaskIt/)
 
 ## Overview
 
@@ -15,11 +15,11 @@ My goal was to focus more on **modularity, encapsulation, and clean architecture
 
 This was my first project using JS classes. I plan to revisit this project after building more applications with these patterns.
 
-## Technologies
+## Tech stack
 
 - JavaScript ES6+ Classes and Modules
 - Webpack
--
+- Tailwind CSS (with DaisyUI Components)
 
 ## Future Plans
 
