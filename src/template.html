@@ -7,7 +7,7 @@
 	</head>
 	<body class="h-full flex flex-col">
 		<header class="border-b border-secondary bg-base-300">
-			<div class="lg:container mx-auto navbar shadow-sm">
+			<div class="lg:container mx-auto navbar">
 				<div class="navbar-start">
 					<div class="dropdown">
 						<div
@@ -57,9 +57,9 @@
 					</ul>
 				</div>
 				<div class="navbar-end">
-					<button class="btn" onclick="my_modal_5.showModal()">Add Task</button>
+					<button class="btn" onclick="modal.showModal()">Add Task</button>
 					<!-- MODAL TO ADD TASK -->
-					<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+					<dialog id="modal" class="modal modal-bottom sm:modal-middle">
 						<div class="modal-box sm:w-2xs">
 							<form method="dialog">
 								<button
@@ -120,8 +120,10 @@
 				</div>
 			</div>
 		</header>
-		<!-- CREATE SPACES -->
-		<!-- SPACES -->
-		<!-- TODOS INSIDE SPACES -->
+		<main class="flex-grow">
+			<div
+				id="content"
+				class="lg:container mx-auto p-3 flex flex-col items-center justify-center h-full"></div>
+		</main>
 	</body>
 </html>
